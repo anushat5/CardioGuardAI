@@ -10,7 +10,8 @@ st.subheader("Early Detection of Cardiac Emergencies from ECG")
 uploaded_file = st.file_uploader("Upload ECG file (.csv)", type=["csv"])
 if uploaded_file:
     st.success("ECG data uploaded!")
-    ecg_data = np.loadtxt(uploaded_file, delimiter=",")
+   ecg_data = np.loadtxt(uploaded_file, delimiter=",", skiprows=1)
+
     
     st.line_chart(ecg_data[:1000])  # Show first few points
     
